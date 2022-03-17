@@ -14,8 +14,8 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public LoginPage digitarEmail(String email) {
-        navegador.findElement(By.id("email_create")).sendKeys(email);
+    public LoginPage digitarEmail(String name, String lastname, String email) {
+        navegador.findElement(By.id("email_create")).sendKeys(name+lastname+email);
 
         return this;
     }
@@ -26,8 +26,8 @@ public class LoginPage extends BasePage{
         return new CreateAnAccountPage(navegador);
     }
 
-    public CreateAnAccountPage formularioEmail(String email) {
-        digitarEmail(email);
+    public CreateAnAccountPage formularioEmail(String name, String lastname, String email) {
+        digitarEmail(name, lastname, email);
         clicarCreateAnAccount();
 
         return clicarCreateAnAccount();

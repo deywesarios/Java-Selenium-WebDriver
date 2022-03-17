@@ -1,5 +1,6 @@
 package tests;
 
+import io.cucumber.java.pt.Dado;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
@@ -7,9 +8,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 import suport.Web;
+
+import java.util.concurrent.TimeUnit;
 
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "InformacoesDoUsuarioData.csv")
@@ -38,12 +43,13 @@ public class AutomationPracticeTest {
     ) {
         new LoginPage(navegador)
                 .clicarSignIn()
-                .formularioEmail(email)
-                .formularioCreateAccount(sexo,name,lastname,password,address,city,state,zipcode,phone,alias);
+                .formularioEmail(name,lastname,email)
+                .formularioCreateAccount(sexo,name,lastname,password,address,city,state,zipcode,phone,alias)
+                .myAccount();
     }
 
     @After
     public void tearDown() {
-        //navegador.quit();
+        navegador.quit();
     }
 }

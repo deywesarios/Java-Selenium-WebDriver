@@ -82,6 +82,7 @@ public class CreateAnAccountPage extends BasePage{
     }
 
     public CreateAnAccountPage alias(String alias) {
+        navegador.findElement(By.id("alias")).clear();
         navegador.findElement(By.id("alias")).sendKeys(alias);
 
         return this;
@@ -118,6 +119,6 @@ public class CreateAnAccountPage extends BasePage{
         alias(alias);
         clicarRegister();
 
-        return clicarRegister();
+        return new MyAccount(navegador);
     }
 }
