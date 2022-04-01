@@ -1,5 +1,6 @@
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.easetech.easytest.annotation.DataLoader;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -10,6 +11,6 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         dryRun = false
 )
+@DataLoader(filePaths = "InformacoesDoUsuarioDataStep.csv")
 public class Runner {
-
 }
