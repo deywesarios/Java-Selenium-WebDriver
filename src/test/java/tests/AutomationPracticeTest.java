@@ -1,6 +1,5 @@
 package tests;
 
-import io.cucumber.java.pt.Dado;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
@@ -8,13 +7,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 import suport.Web;
 
-import java.util.concurrent.TimeUnit;
+// DESTE MODELO A MASSA DE DADOS ESTÁ FIXA SENDO NECESSÁRIA ALTERAÇÕES NO ARQUIVO .CSV
 
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "InformacoesDoUsuarioData.csv")
@@ -39,7 +36,6 @@ public class AutomationPracticeTest {
             @Param(name = "zipcode")String zipcode,
             @Param(name = "phone")String phone,
             @Param(name = "alias")String alias
-
     ) {
         new LoginPage(navegador)
                 .clicarSignIn()
