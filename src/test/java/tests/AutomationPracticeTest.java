@@ -48,4 +48,9 @@ public class AutomationPracticeTest {
     public void tearDown() {
         navegador.quit();
     }
+
+    @Test
+    public void testando123() {
+    System.out.print = teste;
+    }
 }
